@@ -11,13 +11,6 @@ use clearbold\cmservice\models\Settings;
 
 use Craft;
 use craft\base\Plugin;
-use craft\services\Plugins;
-use craft\events\PluginEvent;
-use craft\web\UrlManager;
-use craft\events\RegisterComponentTypesEvent;
-use craft\events\RegisterUrlRulesEvent;
-use craft\helpers\UrlHelper;
-use yii\base\Event;
 
 /**
  * Campaign Monitor Service is an API wrapper and settings manager for Campaign Monitor plugins for Craft.

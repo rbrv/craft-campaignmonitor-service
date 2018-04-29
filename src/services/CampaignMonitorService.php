@@ -142,7 +142,6 @@ class CampaignMonitorService extends Component
     }
 
     public function getActiveSubscribers($listId = '', $params = []) {
-        // $wrap->get_active_subscribers('Added since', 1, 50, 'email', 'asc');
         $settings = CmService::$plugin->getSettings();
 
         try {
@@ -153,7 +152,6 @@ class CampaignMonitorService extends Component
                 $auth);
 
             $result = $client->get_active_subscribers('', 1, 10, 'date', 'desc');
-            // var_dump($result->response->Results);
 
             if($result->was_successful()) {
                 return [
