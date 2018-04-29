@@ -212,4 +212,41 @@ class CampaignMonitorService extends Component
             ];
         }
     }
+
+    /*
+     * @return mixed
+     */
+    public function addSubscriber($listId = '', $subscriber = array())
+    {
+        $settings = CmService::$plugin->getSettings();
+
+        try {
+            $auth = array(
+                'api_key' => (string)$settings->apiKey);
+            $client = new \CS_REST_Subscribers(
+                $listId,
+                $auth);
+            $result = $client->add($subscriber);
+
+            if($result->was_successful()) {
+                $body = $result->response;
+                return [
+                    'success' => true,
+                    'statusCode' => $result->http_status_code,
+                    'body' => $body
+                ];
+            } else {
+                return [
+                    'success' => false,
+                    'statusCode' => $result->http_status_code,
+                    'reason' => $result->response->Message
+                ];
+            }
+        } catch (\Exception $e) {
+            return [
+                'success' => false,
+                'reason' => $e->getMessage()
+            ];
+        }
+    }
 }
