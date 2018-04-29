@@ -1,0 +1,46 @@
+{
+    "name": "clearbold/craft-campaignmonitor-service",
+    "description": "Campaign Monitor Service is an API wrapper and settings manager for Campaign Monitor plugins for Craft.",
+    "version": "1.0.0",
+    "type": "craft-plugin",
+    "homepage": "https://github.com/clearbold/craft-campaignmonitor-service",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Mark Reeves",
+            "homepage": "http://clearbold.com"
+        }
+    ],
+    "keywords": [
+        "craft",
+        "cms",
+        "craftcms",
+        "email",
+        "campaignmonitor",
+        "campaign monitor"
+    ],
+    "require": {
+        "craftcms/cms": "^3.0.1",
+        "campaignmonitor/createsend-php": "^5.1.3"
+    },
+    "autoload": {
+        "psr-4": {
+          "clearbold\\cmservice\\": "src/"
+        }
+    },
+    "support": {
+        "docs": "https://github.com/clearbold/craft-campaignmonitor-service",
+        "source": "https://github.com/clearbold/craft-campaignmonitor-service",
+        "issues": "https://github.com/clearbold/craft-campaignmonitor-service/issues"
+    },
+    "extra": {
+        "name": "Campaign Monitor Service",
+        "handle": "cm-service",
+        "developer": "Clearbold",
+        "developerUrl": "http://clearbold.com/",
+        "changelogUrl": "https://raw.githubusercontent.com/clearbold/craft-campaignmonitor-service/master/CHANGELOG.md",
+        "class": "clearbold\\cmservice\\CmService"
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
+}
