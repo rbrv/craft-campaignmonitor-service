@@ -1,7 +1,7 @@
 {
     "name": "clearbold/craft-campaignmonitor-service",
     "description": "Campaign Monitor Service is an API wrapper and settings manager for Campaign Monitor plugins for Craft.",
-    "version": "1.0.0",
+    "version": "1.0.2",
     "type": "craft-plugin",
     "homepage": "https://github.com/clearbold/craft-campaignmonitor-service",
     "license": "MIT",
@@ -36,6 +36,7 @@
     "extra": {
         "name": "Campaign Monitor Service",
         "handle": "cm-service",
+        "hasCpSettings": true,
         "developer": "Clearbold",
         "developerUrl": "http://clearbold.com/",
         "changelogUrl": "https://raw.githubusercontent.com/clearbold/craft-campaignmonitor-service/master/CHANGELOG.md",

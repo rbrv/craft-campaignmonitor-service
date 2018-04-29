@@ -6,8 +6,8 @@
 
 namespace clearbold\cmservice;
 
-use clearbold\cmservices\services\CampaignMonitorService;
-use clearbold\cmservices\models\Settings;
+use clearbold\cmservice\services\CampaignMonitorService;
+use clearbold\cmservice\models\Settings;
 
 use Craft;
 use craft\base\Plugin;
@@ -23,10 +23,11 @@ use yii\base\Event;
  * Campaign Monitor Service is an API wrapper and settings manager for Campaign Monitor plugins for Craft.
  *
  * @author Mark Reeves, Clearbold, LLC <hello@clearbold.com>
- * @since 0.1.0
+ * @since 1.0.0
  */
-class CmServices extends Plugin
+class CmService extends Plugin
 {
+    public $hasCpSettings = true;
     public static $plugin;
 
     // Public Methods

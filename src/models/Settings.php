@@ -3,7 +3,7 @@
  * @link      https://github.com/clearbold/craft-campaignmonitor-synch
  * @copyright Copyright (c) Clearbold, LLC
  *
- * Synch your Craft members or "people" entries with your Campaign Monitor subscriber lists.
+ * ...
  *
  */
 
@@ -16,7 +16,7 @@ use craft\base\Model;
 
 /**
  * @author    Mark Reeves, Clearbold, LLC <hello@clearbold.com>
- * @since     0.1.0
+ * @since     1.0.0
  */
 class Settings extends Model
 {
