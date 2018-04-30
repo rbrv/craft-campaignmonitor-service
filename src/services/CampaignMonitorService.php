@@ -247,4 +247,37 @@ class CampaignMonitorService extends Component
             ];
         }
     }
+    public function unsubSubscriber($listId = '', $email = '')
+    {
+        $settings = CmService::$plugin->getSettings();
+
+        try {
+            $auth = array(
+                'api_key' => (string)$settings->apiKey);
+            $client = new \CS_REST_Subscribers(
+                $listId,
+                $auth);
+            $result = $client->unsubscribe($email);
+
+            if($result->was_successful()) {
+                $body = $result->response;
+                return [
+                    'success' => true,
+                    'statusCode' => $result->http_status_code,
+                    'body' => $body
+                ];
+            } else {
+                return [
+                    'success' => false,
+                    'statusCode' => $result->http_status_code,
+                    'reason' => $result->response->Message
+                ];
+            }
+        } catch (\Exception $e) {
+            return [
+                'success' => false,
+                'reason' => $e->getMessage()
+            ];
+        }
+    }
 }

@@ -1,3 +1,7 @@
+## 1.0.4 - 2018-04-29
+
+* Added support for subscribers/unsubscribe method.
+
 ## 1.0.3 - 2018-04-29
 
 * Added support for subscribers/add method.
