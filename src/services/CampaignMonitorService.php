@@ -309,7 +309,7 @@ class CampaignMonitorService extends Component
             $client = new \CS_REST_Campaigns(
                 NULL,
                 $auth);
-            $result = $client->add($campaign);
+            $result = $client->create('2b87d08d39d83bc24d44ba44a1f06020', $campaign);
 
             if($result->was_successful()) {
                 $body = $result->response;
