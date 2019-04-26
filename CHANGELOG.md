@@ -1,3 +1,7 @@
+## 1.0.7 - 2019-04-26
+
+* Added support for subscribers/update method.
+
 ## 1.0.6 - 2018-06-10
 
 * Added support for campaign create method.
