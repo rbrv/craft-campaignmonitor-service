@@ -224,7 +224,7 @@ class CampaignMonitorService extends Component
             $client = new \CS_REST_Subscribers(
                 $listId,
                 $auth);
-            $result = $client->update($subscriber);
+            $result = $client->update($oldEmail, $subscriber);
 
             if($result->was_successful()) {
                 $body = $result->response;

@@ -1,3 +1,7 @@
+## 1.0.8 - 2019-04-26
+
+* Bug fix for subscribers/update method.
+
 ## 1.0.7 - 2019-04-26
 
 * Added support for subscribers/update method.
