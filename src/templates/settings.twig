@@ -1,6 +1,6 @@
 {% import '_includes/forms' as forms %}
 
-{{ forms.textField({
+{{ forms.autosuggestField({
     first:        true,
     required:     true,
     label:        'API Key',
@@ -8,15 +8,17 @@
     id:           'apiKey',
     name:         'apiKey',
     placeholder:  '',
-    value:        settings.apiKey
+    value:        settings.apiKey,
+    suggestEnvVars: true
 }) }}
 
-{{ forms.textField({
+{{ forms.autosuggestField({
     required:     true,
     label:        'Client ID',
     instructions: '',
     id:           'clientId',
     name:         'clientId',
     placeholder:  '',
-    value:        settings.clientId
+    value:        settings.clientId,
+    suggestEnvVars: true
 }) }}

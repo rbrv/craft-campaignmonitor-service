@@ -26,25 +26,42 @@ use craft\base\Component;
 class CampaignMonitorService extends Component
 {
     /**
-     * @var settings
-     * @todo declare it once
+     * @var string
      */
+    private $apiKey;
+
+    /**
+     * @var string
+     */
+    private $clientId;
 
     // Public Methods
     // =========================================================================
+
+    /**
+     * @inheritdoc
+     */
+    public function init()
+    {
+        parent::init();
+
+        $settings = CmService::$plugin->getSettings();
+        $this->apiKey = $settings->getApiKey();
+        $this->clientId = $settings->getClientId();
+    }
 
     /*
      * @return mixed
      */
     public function getLists()
     {
-        $settings = CmService::$plugin->getSettings();
-
         try {
-            $auth = array(
-                'api_key' => (string)$settings->apiKey);
+            $auth = [
+                'api_key' => $this->apiKey,
+            ];
+
             $client = new \CS_REST_Clients(
-                $settings->clientId,
+                $this->clientId,
                 $auth);
 
             $result = $client->get_lists();
@@ -76,11 +93,11 @@ class CampaignMonitorService extends Component
 
     public function getListStats($listId = '')
     {
-        $settings = CmService::$plugin->getSettings();
-
         try {
-            $auth = array(
-                'api_key' => (string)$settings->apiKey);
+            $auth = [
+                'api_key' => $this->apiKey,
+            ];
+
             $client = new \CS_REST_Lists(
                 $listId,
                 $auth);
@@ -110,11 +127,11 @@ class CampaignMonitorService extends Component
 
     public function getList($listId = '')
     {
-        $settings = CmService::$plugin->getSettings();
-
         try {
-            $auth = array(
-                'api_key' => (string)$settings->apiKey);
+            $auth = [
+                'api_key' => $this->apiKey,
+            ];
+
             $client = new \CS_REST_Lists(
                 $listId,
                 $auth);
@@ -143,11 +160,11 @@ class CampaignMonitorService extends Component
     }
 
     public function getActiveSubscribers($listId = '', $params = []) {
-        $settings = CmService::$plugin->getSettings();
-
         try {
-            $auth = array(
-                'api_key' => (string)$settings->apiKey);
+            $auth = [
+                'api_key' => $this->apiKey,
+            ];
+
             $client = new \CS_REST_Lists(
                 $listId,
                 $auth);
@@ -180,11 +197,11 @@ class CampaignMonitorService extends Component
      */
     public function importSubscribers($listId = '', $subscribers = array())
     {
-        $settings = CmService::$plugin->getSettings();
-
         try {
-            $auth = array(
-                'api_key' => (string)$settings->apiKey);
+            $auth = [
+                'api_key' => $this->apiKey,
+            ];
+
             $client = new \CS_REST_Subscribers(
                 $listId,
                 $auth);
@@ -216,11 +233,11 @@ class CampaignMonitorService extends Component
      * @return mixed
      */
     public function updateSubscriber($listId = '', $oldEmail = '', $email = '', $subscriber = array()) {
-        $settings = CmService::$plugin->getSettings();
-
         try {
-            $auth = array(
-                'api_key' => (string)$settings->apiKey);
+            $auth = [
+                'api_key' => $this->apiKey,
+            ];
+
             $client = new \CS_REST_Subscribers(
                 $listId,
                 $auth);
@@ -253,11 +270,11 @@ class CampaignMonitorService extends Component
      */
     public function addSubscriber($listId = '', $subscriber = array())
     {
-        $settings = CmService::$plugin->getSettings();
-
         try {
-            $auth = array(
-                'api_key' => (string)$settings->apiKey);
+            $auth = [
+                'api_key' => $this->apiKey,
+            ];
+
             $client = new \CS_REST_Subscribers(
                 $listId,
                 $auth);
@@ -287,11 +304,11 @@ class CampaignMonitorService extends Component
 
     public function unsubSubscriber($listId = '', $email = '')
     {
-        $settings = CmService::$plugin->getSettings();
-
         try {
-            $auth = array(
-                'api_key' => (string)$settings->apiKey);
+            $auth = [
+                'api_key' => $this->apiKey,
+            ];
+
             $client = new \CS_REST_Subscribers(
                 $listId,
                 $auth);
@@ -325,8 +342,6 @@ class CampaignMonitorService extends Component
     // public function createCampaign($campaign = array())
     public function createCampaign()
     {
-        $settings = CmService::$plugin->getSettings();
-
         $campaign = array(
             'Subject' => 'Campaign Subject',
             'Name' => 'Campaign Name',
@@ -340,8 +355,10 @@ class CampaignMonitorService extends Component
         );
 
         try {
-            $auth = array(
-                'api_key' => (string)$settings->apiKey);
+            $auth = [
+                'api_key' => $this->apiKey,
+            ];
+
             $client = new \CS_REST_Campaigns(
                 NULL,
                 $auth);

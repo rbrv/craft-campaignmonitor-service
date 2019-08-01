@@ -35,6 +35,19 @@ class Settings extends Model
     // Public Methods
     // =========================================================================
 
+    public function behaviors()
+    {
+        return [
+            'parser' => [
+                'class' => EnvAttributeParserBehavior::class,
+                'attributes' => [
+                    'apiKey',
+                    'clientId',
+                ],
+            ],
+        ];
+    }
+
     /**
      * @inheritdoc
      */
@@ -46,5 +59,25 @@ class Settings extends Model
             [['clientId'], 'string'],
             [['clientId'], 'required'],
         ];
+    }
+
+    /**
+     * Retrieve parsed API Key
+     * 
+     * @return string
+     */ 
+    public function getApiKey(): string
+    {
+        return Craft::parseEnv($this->apiKey);
+    }
+
+    /**
+     * Retrieve parse Client Id
+     * 
+     * @return string
+     */
+    public function getClientId(): string
+    {
+        return Craft::parseEnv($this->clientId);
     }
 }
