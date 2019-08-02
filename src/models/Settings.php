@@ -36,6 +36,9 @@ class Settings extends Model
     // Public Methods
     // =========================================================================
 
+    /**
+     * @inheritdoc
+     */
     public function behaviors()
     {
         return [
