@@ -13,6 +13,7 @@ use clearbold\cmservice\CmService;
 
 use Craft;
 use craft\base\Model;
+use craft\behaviors\EnvAttributeParserBehavior;
 
 /**
  * @author    Mark Reeves, Clearbold, LLC <hello@clearbold.com>
