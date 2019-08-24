@@ -175,6 +175,39 @@ class CampaignMonitorService extends Component
         }
     }
 
+    public function getListsForEmail($email = '', $params = []) {
+        $settings = CmService::$plugin->getSettings();
+
+        try {
+            $auth = array(
+                'api_key' => (string)$settings->apiKey);
+            $client = new \CS_REST_Clients(
+                $settings->clientId,
+                $auth);
+
+            $result = $client->get_lists_for_email($email);
+
+            if($result->was_successful()) {
+                return [
+                    'success' => true,
+                    'statusCode' => $result->http_status_code,
+                    'body' => $result->response
+                ];
+            } else {
+                return [
+                    'success' => false,
+                    'statusCode' => $result->http_status_code,
+                    'reason' => $result->response
+                ];
+            }
+        } catch (\Exception $e) {
+            return [
+                'success' => false,
+                'reason' => $e->getMessage()
+            ];
+        }
+    }
+
     /*
      * @return mixed
      */
