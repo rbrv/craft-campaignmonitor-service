@@ -13,6 +13,7 @@ use clearbold\cmservice\CmService;
 
 use Craft;
 use craft\base\Model;
+use craft\behaviors\EnvAttributeParserBehavior;
 
 /**
  * @author    Mark Reeves, Clearbold, LLC <hello@clearbold.com>
@@ -38,6 +39,22 @@ class Settings extends Model
     /**
      * @inheritdoc
      */
+    public function behaviors()
+    {
+        return [
+            'parser' => [
+                'class' => EnvAttributeParserBehavior::class,
+                'attributes' => [
+                    'apiKey',
+                    'clientId',
+                ],
+            ],
+        ];
+    }
+
+    /**
+     * @inheritdoc
+     */
     public function rules()
     {
         return [
@@ -46,5 +63,25 @@ class Settings extends Model
             [['clientId'], 'string'],
             [['clientId'], 'required'],
         ];
+    }
+
+    /**
+     * Retrieve parsed API Key
+     * 
+     * @return string
+     */ 
+    public function getApiKey(): string
+    {
+        return Craft::parseEnv($this->apiKey);
+    }
+
+    /**
+     * Retrieve parse Client Id
+     * 
+     * @return string
+     */
+    public function getClientId(): string
+    {
+        return Craft::parseEnv($this->clientId);
     }
 }
