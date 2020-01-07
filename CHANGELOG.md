@@ -1,3 +1,7 @@
+## 1.0.10 - 2020-01-07
+
+* Merged getListsForEmail() function
+
 ## 1.0.9 - 2020-01-07
 
 * Support for API Key & Client ID in env variables
