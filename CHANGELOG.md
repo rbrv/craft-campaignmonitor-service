@@ -1,3 +1,7 @@
+## 1.0.9 - 2020-01-07
+
+* Support for API Key & Client ID in env variables
+
 ## 1.0.8 - 2019-04-26
 
 * Bug fix for subscribers/update method.
