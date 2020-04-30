@@ -1,6 +1,6 @@
 <?php
 /**
- * @link      https://github.com/clearbold/craft-campaignmonitor-synch
+ * @link https://github.com/clearbold/craft-campaignmonitor-synch
  * @copyright Copyright (c) Clearbold, LLC
  *
  * ...
@@ -67,9 +67,9 @@ class Settings extends Model
 
     /**
      * Retrieve parsed API Key
-     * 
+     *
      * @return string
-     */ 
+     */
     public function getApiKey(): string
     {
         return Craft::parseEnv($this->apiKey);
@@ -77,7 +77,7 @@ class Settings extends Model
 
     /**
      * Retrieve parse Client Id
-     * 
+     *
      * @return string
      */
     public function getClientId(): string

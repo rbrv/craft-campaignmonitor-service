@@ -1,3 +1,7 @@
+## 1.0.11 - 2020-01-14
+
+* Updated Craft version
+
 ## 1.0.10 - 2020-01-07
 
 * Merged getListsForEmail() function
