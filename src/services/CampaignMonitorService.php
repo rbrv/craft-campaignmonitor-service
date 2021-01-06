@@ -80,7 +80,7 @@ class CampaignMonitorService extends Component
                 return [
                     'success' => false,
                     'statusCode' => $result->http_status_code,
-                    'reason' => $result->response
+                    'reason' => $result->response->Code . ' ' . $result->response->Message
                 ];
             }
         } catch (\Exception $e) {

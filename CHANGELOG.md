@@ -1,3 +1,7 @@
+## 1.0.13 - 2020-11-20
+
+* Returning result->Message as reason for template
+
 ## 1.0.12 - 2020-11-20
 
 * Updated campaignmonitor/createsend-php requirement to 6.1.1
