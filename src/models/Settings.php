@@ -39,7 +39,7 @@ class Settings extends Model
     /**
      * @inheritdoc
      */
-    public function behaviors()
+    public function behaviors(): array
     {
         return [
             'parser' => [
@@ -55,7 +55,7 @@ class Settings extends Model
     /**
      * @inheritdoc
      */
-    public function rules()
+    public function rules(): array
     {
         return [
             [['apiKey'], 'string'],

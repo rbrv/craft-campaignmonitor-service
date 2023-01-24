@@ -1,3 +1,8 @@
+## 2.0.0 - 2023-01-24
+
+* Make compatible with Craft 4.0
+* Make compatible php 8.0
+
 ## 1.0.13 - 2020-11-20
 
 * Returning result->Message as reason for template

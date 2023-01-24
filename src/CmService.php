@@ -20,7 +20,7 @@ use craft\base\Plugin;
  */
 class CmService extends Plugin
 {
-    public $hasCpSettings = true;
+    public bool $hasCpSettings = true;
     public static $plugin;
 
     // Public Methods
@@ -45,12 +45,12 @@ class CmService extends Plugin
         );
     }
 
-    protected function createSettingsModel()
+    protected function createSettingsModel(): ?\craft\base\Model
     {
         return new \clearbold\cmservice\models\Settings();
     }
 
-    protected function settingsHtml()
+    protected function settingsHtml(): ?string
     {
         return \Craft::$app->getView()->renderTemplate('cm-service/settings', [
             'settings' => $this->getSettings()
